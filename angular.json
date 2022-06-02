@@ -1,9 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "28db627e-3dc6-44aa-9c03-c6c0b89b2d3b",
+    "defaultCollection": "@angular-eslint/schematics"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "proyecto1": {
+    "my-store-api": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proyecto1",
+            "outputPath": "dist/my-store-api",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "proyecto1:build:production"
+              "browserTarget": "my-store-api:build:production"
             },
             "development": {
-              "browserTarget": "proyecto1:build:development"
+              "browserTarget": "my-store-api:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "proyecto1:build"
+            "browserTarget": "my-store-api:build"
           }
         },
         "test": {
@@ -103,9 +107,18 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "proyecto1"
+  "defaultProject": "my-store-api"
 }
